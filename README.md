@@ -46,6 +46,7 @@ rail-log-analyzer/
 ### 1. Clone the Repository
 
 git clone https://github.com/h10khxn/Automated-Rail-Log-Analyzer.git
+
 cd rail-log-analyzer/scripts
 
 ### 2. Run the shell command
