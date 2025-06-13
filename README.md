@@ -1,25 +1,31 @@
 # Rail System Log Analyzer
 
-A safety-critical log parser for real-time embedded systems. This tool reads, analyzes, and summarizes log files for `[WARNING]` and `[ERROR]` messages — useful for debugging simulated embedded systems like those used in transportation, automation, or industrial environments.
+A safety-critical log parser for real-time embedded systems. This tool reads, analyzes, and generates AI based natural-language summaries of log files containing `[WARNING]` and `[ERROR]` messages — ideal for debugging simulated systems like those used in transportation, automation, and industrial control.
 
 ---
 
 ## 🔧 Features
 
 - Parses and cleans raw log files
-- Detects and counts warnings and errors
-- Outputs a clear summary to the console
-- Structured using object-oriented principles
-- Easily extendable for file output, CLI support, and automation
+- Detects and counts all warning and error messages
+- Generates natural-language summaries using a locally hosted BART transformer model
+- Displays a full breakdown and AI-generated summary in the terminal
+- Structured with clean object-oriented Python
+- Easy to extend for file output, real-time feeds, dashboards, or anomaly detection
 
 ---
 
 ## 🛠 Tech Stack
 
 - **Python 3**
-- Shell scripting (`run.sh`) for automation
+- **Transformers (Hugging Face)**
+- **BART-large-cnn** for summarization
+- Shell scripting (`run.sh`) for execution
 
----
+> ⚠️ Make sure you install dependencies before running:
+```bash
+pip install transformers torch
+
 
 ## 📂 Project Structure
 

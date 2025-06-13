@@ -1,4 +1,6 @@
 import os
+from transformers import pipeline
+
 class LogAnalyzer:
     def __init__(self, log_file_path):
         self.log_file_path = log_file_path
@@ -33,8 +35,13 @@ class LogAnalyzer:
         print("Warnings:")
         for w in self.warnings:
             print(" -", w)
+    def summarize_logs(self):
+        summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+        full_log = " ".join(["The log contains " + str(self.error_count) + " errors and " + str(self.warning_count) + " warnings."] + self.log_lines)
+        print(summarizer(full_log, max_length=130, min_length=30, do_sample=False))
 
 analyzer = LogAnalyzer("../logs/system_log.txt")
 analyzer.read_log()
 analyzer.analyze_log()
 analyzer.generate_summary()
+analyzer.summarize_logs()
